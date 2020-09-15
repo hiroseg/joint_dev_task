@@ -5,7 +5,7 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  names.push("斎藤")
+  names << "斎藤"
   p names
 
 end
@@ -61,7 +61,7 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-  array.map! { |n| n.to_i }
+  array.map!(&:to_i)
 
   # 以下は変更しないで下さい
   p array
@@ -83,6 +83,9 @@ def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
+  names.each_with_index do |name, i|
+    puts "会員No.#{i+1} #{name}さん"
+  end
 
 end
 
@@ -90,13 +93,24 @@ def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
-
+  foods.each do |food|
+    if food.include?("うに")
+      puts "好物です"
+    else
+      puts "まぁまぁ好きです"
+    end
+  end
 end
 
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
+  sports.flatten!.uniq!
+  puts "ユーザーの趣味一覧"
+  sports.each_with_index do |sport, i|
+    puts "No#{i+1} #{sport}"
+  end
 
 end
 
@@ -104,6 +118,7 @@ def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
+  puts data[:user][:name]
 
 end
 
@@ -112,6 +127,7 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
+  p user_data.merge(update_data)
 
 end
 
