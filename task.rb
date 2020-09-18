@@ -172,20 +172,21 @@ end
 class UserQ17
   # 以下に回答を記載
 
-  attr_reader :name, :age, :gender
+  # attr_reader :name, :age, :gender
 
-  def initialize(params)
-    @name = params[:name]
-    @age = params[:age]
-    @gender = params[:gender]
+  def initialize(name:, age:, gender:)
+    @name = name
+    @age = age
+    @gender = gender
   end
 
   def info
-    puts <<-TEXT
-名前：#{self.name}
-年齢：#{self.age}
-性別：#{self.gender}
-TEXT
+    puts <<~TEXT
+      名前：#{@name}
+      年齢：#{@age}
+      性別：#{@gender}
+    TEXT
+
   end
 
 end
@@ -202,18 +203,18 @@ end
 
 class UserQ18
   # 以下に回答を記載
-  attr_reader :name, :age
+  # attr_reader :name, :age
 
-  def initialize(params)
+  def initialize(**params)
     @name = params[:name]
     @age = params[:age]
   end
 
   def introduce
-    if self.age > 15
-      "こんにちは、#{self.name}と申します。よろしくお願いいたします。"
+    if @age > 15
+      "こんにちは、#{@name}と申します。よろしくお願いいたします。"
     else
-      "はいさいまいど〰,#{self.name}です！！！"
+      "はいさいまいど〰,#{@name}です！！！"
     end
   end
 
@@ -232,8 +233,8 @@ class Item
   # 以下を修正して下さい
   attr_reader :name
 
-  def initialize(params)
-    @name = params[:name]
+  def initialize(name:)
+    @name = name
   end
 end
 
@@ -247,9 +248,9 @@ class UserQ20
   # 以下に回答を記載
   attr_reader :name, :age
 
-  def initialize(params)
-    @name = params[:name]
-    @age = params[:age]
+  def initialize(name:, age:)
+    @name = name
+    @age = age
   end
 
 end
@@ -257,7 +258,7 @@ end
 class Zoo
   # 以下に回答を記載
 
-  def initialize(params)
+  def initialize(**params)
     @name = params[:name]
     @entry_fee = params[:entry_fee]
   end
